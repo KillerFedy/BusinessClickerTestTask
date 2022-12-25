@@ -6,8 +6,8 @@ using UnityEngine;
 public class ImprovementBusinessData : ScriptableObject
 {
     [SerializeField] private float _improvementCost;
-    [SerializeField] private float _improvementÑoefficient;
+    [SerializeField] private float _improvementCoefficient;
 
     public float ImprovementCost => _improvementCost;
-    public float ImprovementÑoefficient => _improvementÑoefficient;
+    public float ImprovementCoefficient => _improvementCoefficient;
 }
