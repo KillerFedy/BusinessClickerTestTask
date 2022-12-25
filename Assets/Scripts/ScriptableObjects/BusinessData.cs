@@ -6,6 +6,7 @@ using UnityEngine;
 public class BusinessData : ScriptableObject
 {
     [SerializeField] private string _businessName;
+    [SerializeField] private int _businessLevel;
     [SerializeField] private float _incomeDelay;
     [SerializeField] private float _baseCost;
     [SerializeField] private float _baseIncome;
@@ -13,6 +14,7 @@ public class BusinessData : ScriptableObject
     [SerializeField] private ImprovementBusinessData _secondImprovement;
 
     public string BusinessName => _businessName;
+    public int BusinessLevel => _businessLevel;
     public float IncomeDelay => _incomeDelay;
     public float BaseCost => _baseCost;
     public float BaseIncome => _baseIncome;

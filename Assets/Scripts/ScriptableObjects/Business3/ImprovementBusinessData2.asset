@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: ImprovementBusinessData2
   m_EditorClassIdentifier: 
   _improvementCost: 20000
-  "_improvement\u0421oefficient": 1.5
+  _improvementCoefficient: 1.5

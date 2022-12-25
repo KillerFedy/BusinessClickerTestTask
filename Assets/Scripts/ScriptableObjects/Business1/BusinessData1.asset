@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: BusinessData1
   m_EditorClassIdentifier: 
   _businessName: "\u0411\u0438\u0437\u043D\u0435\u04411"
+  _businessLevel: 1
   _incomeDelay: 3
   _baseCost: 3
   _baseIncome: 3

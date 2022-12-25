@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: BusinessData5
   m_EditorClassIdentifier: 
   _businessName: "\u0411\u0438\u0437\u043D\u0435\u04415"
+  _businessLevel: 0
   _incomeDelay: 30
   _baseCost: 5000
   _baseIncome: 5000
-  _firstImprovement: {fileID: 0}
-  _secondImprovement: {fileID: 0}
+  _firstImprovement: {fileID: 11400000, guid: 83f0b694d5f287244a928de9752def9b, type: 2}
+  _secondImprovement: {fileID: 11400000, guid: 391eb36e0362c8c40853c270a2ce7154, type: 2}
