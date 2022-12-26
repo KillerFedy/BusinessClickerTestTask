@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Business : IBusiness
+public class Business
 {
     public string BusinessName { get; private set; }
     public int Level { get; private set; }
