@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class BusinessPresenter
 {
-    // Start is called before the first frame update
-    void Start()
+    private Business _model;
+    private BusinessView _view;
+    public BusinessPresenter(Business model, BusinessView view)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        _model = model;
+        _view = view;
     }
 }

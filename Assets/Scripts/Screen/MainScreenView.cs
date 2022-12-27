@@ -18,4 +18,10 @@ public class MainScreenView : MonoBehaviour
     {
         
     }
+
+    public BusinessView AddBusinessView(BusinessView view)
+    {
+        BusinessView obj = Instantiate(view, _scrollContent.transform);
+        return obj;
+    }
 }
