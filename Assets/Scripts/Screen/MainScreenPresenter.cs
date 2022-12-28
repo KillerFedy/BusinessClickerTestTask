@@ -6,16 +6,14 @@ public class MainScreenPresenter
 {
     private MainScreenView _screenView;
     private MainScreen _screenModel;
-    private BusinessView _businessView;
     private List<BusinessPresenter> _businessPresenterList = new List<BusinessPresenter>();
 
-    public MainScreenPresenter(MainScreenView view, MainScreen model, List<Business> businessModelsList, BusinessView businessView)
+    public MainScreenPresenter(MainScreenView view, MainScreen model, List<Business> businessModelsList)
     {
         _screenView = view;
         _screenModel = model;
-        _businessView = businessView;
         InitScreen();
-        InitBusinesses(businessModelsList, businessView, _screenView);
+        InitBusinesses(businessModelsList, Resources.Load<BusinessView>("BusinessPanelView"), _screenView);
     }
 
     private void InitBusinesses(List<Business> businessModelsList, BusinessView businessView, MainScreenView mainScreenView)

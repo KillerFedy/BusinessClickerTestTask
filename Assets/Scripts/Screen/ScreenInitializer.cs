@@ -17,6 +17,6 @@ public class ScreenInitializer : MonoBehaviour
     private void InitMainScreen(List<Business> list)
     {
         _mainScreenModel = new MainScreen();
-        _mainScreenPresenter = new MainScreenPresenter(_mainScreenView, _mainScreenModel, list, Resources.Load<BusinessView>("BusinessPanelView"));
+        _mainScreenPresenter = new MainScreenPresenter(_mainScreenView, _mainScreenModel, list);
     }
 }
