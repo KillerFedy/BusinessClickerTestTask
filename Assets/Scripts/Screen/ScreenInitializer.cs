@@ -11,7 +11,7 @@ public class ScreenInitializer : MonoBehaviour
 
     private void Awake()
     {
-        _modelsList.OnConverted += InitMainScreen;   
+        _modelsList.OnConverted += InitMainScreen;
     }
 
     private void InitMainScreen(List<Business> list)

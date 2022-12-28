@@ -15,7 +15,7 @@ public class MainScreenPresenter
         _screenModel = model;
         _businessView = businessView;
         InitScreen();
-        InitBusinesses(businessModelsList, businessView, _screenView); 
+        InitBusinesses(businessModelsList, businessView, _screenView);
     }
 
     private void InitBusinesses(List<Business> businessModelsList, BusinessView businessView, MainScreenView mainScreenView)

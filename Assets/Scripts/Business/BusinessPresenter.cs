@@ -10,5 +10,7 @@ public class BusinessPresenter
     {
         _model = model;
         _view = view;
+        _view.Init(model.BusinessName, model.Level, model.Income, model.LevelCost, model.FirstImprovementCost, 
+            model.FirstImprovementCoefficient, model.SecondImprovementCost, model.SecondImprovementCoefficient);
     }
 }
