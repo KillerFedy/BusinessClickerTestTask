@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Business
 {
+    private bool _isFirstImprovementBought = false;
+    private bool _isSecondImprovementBought = false;
+
     public string BusinessName { get; private set; }
     public int Level { get; private set; }
     public float IncomeDelay { get; private set; }
@@ -13,7 +16,8 @@ public class Business
     public float FirstImprovementCoefficient { get; private set; }
     public float SecondImprovementCost { get; private set; }
     public float SecondImprovementCoefficient { get; private set; }
-    public float Income => (Level * BaseCost * (1 + FirstImprovementCoefficient + SecondImprovementCoefficient));
+    public float Income => (Level * BaseCost * (1 + (_isFirstImprovementBought ? FirstImprovementCoefficient : 0) + 
+        (_isSecondImprovementBought ? SecondImprovementCoefficient : 0)));
     public float LevelCost => (Level + 1) * BaseCost;
 
     public Business(string name, int level, float delay, float basecost, 

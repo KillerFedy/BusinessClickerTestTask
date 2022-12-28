@@ -24,4 +24,9 @@ public class MainScreenView : MonoBehaviour
         BusinessView obj = Instantiate(view, _scrollContent.transform);
         return obj;
     }
+
+    public void UpdateBalance(float balance)
+    {
+        _balanceText.text = $"Баланс: {balance}";
+    }
 }

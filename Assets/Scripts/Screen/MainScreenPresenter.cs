@@ -14,8 +14,8 @@ public class MainScreenPresenter
         _screenView = view;
         _screenModel = model;
         _businessView = businessView;
-        InitBusinesses(businessModelsList, businessView, _screenView);
-        
+        InitScreen();
+        InitBusinesses(businessModelsList, businessView, _screenView); 
     }
 
     private void InitBusinesses(List<Business> businessModelsList, BusinessView businessView, MainScreenView mainScreenView)
@@ -26,5 +26,10 @@ public class MainScreenPresenter
             BusinessPresenter presenter = new BusinessPresenter(model, view);
             _businessPresenterList.Add(presenter);
         }
+    }
+
+    private void InitScreen()
+    {
+        _screenView.UpdateBalance(_screenModel.Balance);
     }
 }

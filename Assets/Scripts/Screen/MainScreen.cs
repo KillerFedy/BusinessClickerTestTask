@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class MainScreen
 {
-    private float _balance;
+    public float Balance { get; private set; }
 
     public MainScreen()
     {
-        _balance = 0;
+        Balance = 0;
     }
 }
