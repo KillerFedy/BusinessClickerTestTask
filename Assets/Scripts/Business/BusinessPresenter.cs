@@ -12,5 +12,9 @@ public class BusinessPresenter
         _view = view;
         _view.Init(model.BusinessName, model.Level, model.Income, model.LevelCost, model.FirstImprovementCost, 
             model.FirstImprovementCoefficient, model.SecondImprovementCost, model.SecondImprovementCoefficient);
+        if(_model.Level != 0)
+        {
+            _view.SetIncomeSlider(model.IncomeDelay);
+        }
     }
 }
