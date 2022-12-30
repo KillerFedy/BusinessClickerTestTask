@@ -21,10 +21,14 @@ public class BusinessView : MonoBehaviour
 
     public UnityAction OnInсomeAdd;
     public UnityAction OnLevelUp;
+    public UnityAction OnBuyFirstImprovement;
+    public UnityAction OnBuySecondImprovement;
 
     private void Awake()
     {
         _levelUpButton.onClick.AddListener(OnClickLevelUpButton);
+        _firstImprovementBuyButton.onClick.AddListener(OnClickFirstImprovementButton);
+        _secondImprovementBuyButton.onClick.AddListener(OnClickSecondImprovementButton);
     }
 
     public void CheckValueSlider(float value)
@@ -66,8 +70,33 @@ public class BusinessView : MonoBehaviour
         _textIncome.text = $"Доход {income}";
     }
 
+    public void UpdateFirstImprovementButtonText(float firstimprovementcoeff)
+    {
+        SetImprovementButtonText(_firstImprovementBuyButtonText, $"Доход: + {firstimprovementcoeff * 100} % \n Куплен");
+    }
+
+    public void UpdateSecondImprovementButtonText(float secondimprovementcoeff)
+    {
+        SetImprovementButtonText(_secondImprovementBuyButtonText, $"Доход: + {secondimprovementcoeff * 100} % \n Куплен");
+    }
+
+    private void SetImprovementButtonText(TMP_Text improvementButtonText, string text)
+    {
+        improvementButtonText.text = text;
+    }
+
     private void OnClickLevelUpButton()
     {
         OnLevelUp?.Invoke();
+    }
+
+    private void OnClickFirstImprovementButton()
+    {
+        OnBuyFirstImprovement?.Invoke();
+    }
+
+    private void OnClickSecondImprovementButton()
+    {
+        OnBuySecondImprovement?.Invoke();
     }
 }

@@ -9,6 +9,8 @@ public class Business
     public UnityAction<int> OnUpLevel;
     public UnityAction<float> OnUpDateLevelCost;
     public UnityAction<float> OnUpDateIncome;
+    public UnityAction OnBuyFirstImprovement;
+    public UnityAction OnBuySecondImprovement;
 
     private bool _isFirstImprovementBought = false;
     private bool _isSecondImprovementBought = false;
@@ -27,6 +29,9 @@ public class Business
     public float LevelCost => (Level + 1) * BaseCost;
 
     public int LevelToStartBusinessProcess => 1;
+
+    public bool IsFirstImprovementBought => _isFirstImprovementBought;
+    public bool IsSecondImprovementBought => _isSecondImprovementBought;
 
     public Business(string name, int level, float delay, float basecost, 
         float firstImprovementCost, float firstImprovementCoefficient, float secondImprovementCost, float secondImprovementCoefficient)
@@ -47,5 +52,19 @@ public class Business
         OnUpLevel?.Invoke(Level);
         OnUpDateLevelCost?.Invoke(LevelCost);
         OnUpDateIncome?.Invoke(Income);
+    }
+
+    public void BuyFirstImprovement()
+    {
+        _isFirstImprovementBought = true;
+        OnUpDateIncome?.Invoke(Income);
+        OnBuyFirstImprovement?.Invoke();
+    }
+
+    public void BuySecondImprovement()
+    {
+        _isSecondImprovementBought = true;
+        OnUpDateIncome?.Invoke(Income);
+        OnBuySecondImprovement?.Invoke();
     }
 }
