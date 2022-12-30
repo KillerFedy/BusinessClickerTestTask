@@ -1,9 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Business
 {
+    public UnityAction<int> OnUpLevel;
+    public UnityAction<float> OnUpDateLevelCost;
+    public UnityAction<float> OnUpDateIncome;
+
     private bool _isFirstImprovementBought = false;
     private bool _isSecondImprovementBought = false;
 
@@ -20,6 +26,8 @@ public class Business
         (_isSecondImprovementBought ? SecondImprovementCoefficient : 0)));
     public float LevelCost => (Level + 1) * BaseCost;
 
+    public int LevelToStartBusinessProcess => 1;
+
     public Business(string name, int level, float delay, float basecost, 
         float firstImprovementCost, float firstImprovementCoefficient, float secondImprovementCost, float secondImprovementCoefficient)
     {
@@ -31,5 +39,13 @@ public class Business
         FirstImprovementCoefficient = firstImprovementCoefficient;
         SecondImprovementCost = secondImprovementCost;
         SecondImprovementCoefficient = secondImprovementCoefficient;
+    }
+
+    public void UpLevel()
+    {
+        Level++;
+        OnUpLevel?.Invoke(Level);
+        OnUpDateLevelCost?.Invoke(LevelCost);
+        OnUpDateIncome?.Invoke(Income);
     }
 }

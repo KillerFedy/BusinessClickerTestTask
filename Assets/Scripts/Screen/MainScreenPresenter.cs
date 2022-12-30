@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,8 +22,7 @@ public class MainScreenPresenter
         foreach (var model in businessModelsList)
         {
             BusinessView view = mainScreenView.AddBusinessView(businessView);
-            BusinessPresenter presenter = new BusinessPresenter(model, view);
-            presenter.OnIncomeGet += AddMoneyToBalance;
+            BusinessPresenter presenter = new BusinessPresenter(model, view, this);
             _businessPresenterList.Add(presenter);
         }
     }
@@ -32,8 +32,18 @@ public class MainScreenPresenter
         _screenView.UpdateBalance(value);
     }
 
-    private void AddMoneyToBalance(float money)
+    public void AddMoneyToBalance(float money)
     {
         _screenModel.IncreaseBalance(money);
+    }
+
+    public bool CheckBalance(float money)
+    {
+        return money <= _screenModel.Balance;
+    }
+
+    internal void LostMoneyFromBalance(float money)
+    {
+        _screenModel.ReduceBalance(money);
     }
 }

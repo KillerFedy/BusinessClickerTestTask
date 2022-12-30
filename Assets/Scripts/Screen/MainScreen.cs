@@ -19,4 +19,10 @@ public class MainScreen
         Balance += money;
         OnUpdateBalance?.Invoke(Balance);
     }
+
+    public void ReduceBalance(float money)
+    {
+        Balance -= money;
+        OnUpdateBalance?.Invoke(Balance);
+    }
 }

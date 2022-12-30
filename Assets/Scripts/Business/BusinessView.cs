@@ -19,13 +19,19 @@ public class BusinessView : MonoBehaviour
     [SerializeField] private TMP_Text _secondImprovementBuyButtonText;
     [SerializeField] private Slider _incomeSlider;
 
-    public UnityAction OnInñomeGet;
+    public UnityAction OnInñomeAdd;
+    public UnityAction OnLevelUp;
+
+    private void Awake()
+    {
+        _levelUpButton.onClick.AddListener(OnClickLevelUpButton);
+    }
 
     public void CheckValueSlider(float value)
     {
         if(value == _incomeSlider.maxValue)
         {
-            OnInñomeGet?.Invoke();
+            OnInñomeAdd?.Invoke();
         }
     }
 
@@ -43,5 +49,25 @@ public class BusinessView : MonoBehaviour
     public void SetIncomeSlider(float delay)
     {
         _incomeSlider.DOValue(_incomeSlider.maxValue, delay).SetLoops(-1, LoopType.Restart);
+    }
+
+    public void UpdateLevel(int level)
+    {
+        _textLevel.text = $"LVL {level}";
+    }
+
+    public void UpdateLevelCost(float levelCost)
+    {
+        _levelUpButtonText.text = $"LVL UP Öåíà: {levelCost}";
+    }
+
+    public void UpdateIncome(float income)
+    {
+        _textIncome.text = $"Äîõîä {income}";
+    }
+
+    private void OnClickLevelUpButton()
+    {
+        OnLevelUp?.Invoke();
     }
 }

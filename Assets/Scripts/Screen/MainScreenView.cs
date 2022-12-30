@@ -9,16 +9,6 @@ public class MainScreenView : MonoBehaviour
     [SerializeField] private GameObject _scrollContent;
     [SerializeField] private TMP_Text _balanceText;
 
-    private void Start()
-    {
-        
-    }
-
-    private void Update()
-    {
-        
-    }
-
     public BusinessView AddBusinessView(BusinessView view)
     {
         BusinessView obj = Instantiate(view, _scrollContent.transform);
