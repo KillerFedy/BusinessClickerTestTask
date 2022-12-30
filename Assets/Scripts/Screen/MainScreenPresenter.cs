@@ -12,7 +12,7 @@ public class MainScreenPresenter
     {
         _screenView = view;
         _screenModel = model;
-        InitScreen();
+        _screenModel.OnUpdateBalance += UpdateBalance;
         InitBusinesses(businessModelsList, Resources.Load<BusinessView>("BusinessPanelView"), _screenView);
     }
 
@@ -22,12 +22,18 @@ public class MainScreenPresenter
         {
             BusinessView view = mainScreenView.AddBusinessView(businessView);
             BusinessPresenter presenter = new BusinessPresenter(model, view);
+            presenter.OnIncomeGet += AddMoneyToBalance;
             _businessPresenterList.Add(presenter);
         }
     }
 
-    private void InitScreen()
+    private void UpdateBalance(float value)
     {
-        _screenView.UpdateBalance(_screenModel.Balance);
+        _screenView.UpdateBalance(value);
+    }
+
+    private void AddMoneyToBalance(float money)
+    {
+        _screenModel.IncreaseBalance(money);
     }
 }

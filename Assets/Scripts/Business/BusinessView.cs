@@ -19,18 +19,13 @@ public class BusinessView : MonoBehaviour
     [SerializeField] private TMP_Text _secondImprovementBuyButtonText;
     [SerializeField] private Slider _incomeSlider;
 
+    public UnityAction OnInñomeGet;
 
-
-    private void Update()
+    public void CheckValueSlider(float value)
     {
-        CheckValueSlider();
-    }
-
-    private void CheckValueSlider()
-    {
-        if(_incomeSlider.value == _incomeSlider.maxValue)
+        if(value == _incomeSlider.maxValue)
         {
-
+            OnInñomeGet?.Invoke();
         }
     }
 
